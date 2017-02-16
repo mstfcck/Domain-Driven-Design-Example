@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 
-namespace eCommerce.WebService.App_Start
+namespace eCommerce.WebService
 {
     public class W3CWebRequestCorrelationIdentifier : IRequestCorrelationIdentifier
     {

@@ -9,12 +9,8 @@ using eCommerce.DomainModelLayer.Products;
 using eCommerce.DomainModelLayer.Tax;
 using eCommerce.Helpers.Repository;
 using eCommerce.InfrastructureLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace eCommerce.WebService.App_Start.Installers
+namespace eCommerce.WebService.Installers
 {
     public class InfrastructureLayerInstall : IWindsorInstaller
     {

@@ -8,14 +8,13 @@ using System.Text;
 
 namespace eCommerce.InfrastructureLayer
 {
-    public class MemoryRepository<TEntity> : IRepository<TEntity>
-        where TEntity : IAggregateRoot
+    public class MemoryRepository<TEntity> : IRepository<TEntity> where TEntity : IAggregateRoot
     {
         protected static List<TEntity> entities = new List<TEntity>();
 
         public TEntity FindById(Guid id)
         {
-            return entities.Where(x => x.Id == id).FirstOrDefault();
+            return entities.FirstOrDefault(x => x.Id == id);
         }
 
         public TEntity FindOne(ISpecification<TEntity> spec)

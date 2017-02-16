@@ -1,13 +1,8 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using System.Web.Http.Controllers;
+using Castle.MicroKernel.Registration;
 using eCommerce.Helpers.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http.Controllers;
-using System.Web.Mvc;
 
-namespace eCommerce.WebService.App_Start.Installers
+namespace eCommerce.WebService.Installers
 {
     public class DistributedInterfaceLayerInstall : Castle.MicroKernel.Registration.IWindsorInstaller
     {

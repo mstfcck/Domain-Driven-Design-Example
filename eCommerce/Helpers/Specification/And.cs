@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace eCommerce.Helpers.Specification
 {
@@ -11,9 +8,7 @@ namespace eCommerce.Helpers.Specification
         ISpecification<T> left;
         ISpecification<T> right;
 
-        public And(
-            ISpecification<T> left,
-            ISpecification<T> right)
+        public And(ISpecification<T> left, ISpecification<T> right)
         {
             this.left = left;
             this.right = right;

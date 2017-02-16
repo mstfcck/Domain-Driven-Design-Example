@@ -28,8 +28,7 @@ namespace eCommerce.Tests.DomainModelLayer
             expected.SetupGet(x => x.Customer).Returns(new Customer());
 
             //call a method
-            CreditCard actual = CreditCard.Create(new Customer(), "MR J SMITH",
-                "293923910200292", DateTime.Today.AddDays(1));
+            CreditCard actual = CreditCard.Create(new Customer(), "MR J SMITH", "293923910200292", DateTime.Today.AddDays(1));
 
             //single assert thanks to fluent assertions framework
             actual.ShouldBeEquivalentTo(expected.Object);
@@ -48,7 +47,7 @@ namespace eCommerce.Tests.DomainModelLayer
         public void Create_DuplicateCreditCard_ThrowsException()
         {
             //setup
-            Mock<CreditCard> creditCard = new Mock<CreditCard>() 
+            Mock<CreditCard> creditCard = new Mock<CreditCard>()
             {
                 CallBase = true
             };

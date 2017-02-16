@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using eCommerce.Helpers.Domain;
+﻿using eCommerce.Helpers.Domain;
 using eCommerce.DomainModelLayer.Email;
 
 namespace eCommerce.DomainModelLayer.Customers
@@ -13,8 +9,7 @@ namespace eCommerce.DomainModelLayer.Customers
         readonly IEmailGenerator emailGenerator;
         readonly ICustomerRepository customerRepository;
 
-        public CustomerCheckedOutHandle(IEmailGenerator emailGenerator, 
-            IEmailDispatcher emailSender, ICustomerRepository customerRepository)
+        public CustomerCheckedOutHandle(IEmailGenerator emailGenerator, IEmailDispatcher emailSender, ICustomerRepository customerRepository)
         {
             this.emailDispatcher = emailSender;
             this.emailGenerator = emailGenerator;
@@ -25,9 +20,7 @@ namespace eCommerce.DomainModelLayer.Customers
         {
             Customer customer = this.customerRepository.FindById(args.Purchase.CustomerId);
 
-            this.emailDispatcher.Dispatch(
-                this.emailGenerator.Generate(customer, EmailTemplate.PurchaseMade)
-                );
+            this.emailDispatcher.Dispatch(this.emailGenerator.Generate(customer, EmailTemplate.PurchaseMade));
 
             //send notifications, update third party systems, etc
         }

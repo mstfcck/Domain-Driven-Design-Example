@@ -18,8 +18,7 @@ namespace eCommerce.InfrastructureLayer
         {
             this.memRepository = memRepository;
 
-            this.memRepository.Add(Product.Create(new Guid("65D03D7E-E41A-49BC-8680-DC942BABD10A"), "iPhone", 2, 500.02m, 
-                ProductCode.Create(new Guid("B2773EBF-CD0C-4F31-83E2-691973E32531"), "HD")));
+            this.memRepository.Add(Product.Create(new Guid("65D03D7E-E41A-49BC-8680-DC942BABD10A"), "iPhone", 2, 500.02m, ProductCode.Create(new Guid("B2773EBF-CD0C-4F31-83E2-691973E32531"), "HD")));
         }
 
         public Product FindById(Guid id)

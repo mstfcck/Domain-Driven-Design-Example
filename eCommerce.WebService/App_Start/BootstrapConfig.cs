@@ -1,22 +1,16 @@
-﻿using Castle.Windsor;
-using eCommerce.WebService.App_Start.Installers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Http.Dispatcher;
-using System.Web.Mvc;
+using Castle.Windsor;
+using eCommerce.WebService.App_Start;
+using eCommerce.WebService.Installers;
 
-namespace eCommerce.WebService.App_Start
+namespace eCommerce.WebService
 {
     public class BootstrapConfig
     {
         public static void Register(IWindsorContainer container)
         {
-            GlobalConfiguration.Configuration.Services.Replace(
-                typeof(IHttpControllerActivator),
-                new WindsorCompositionRoot(container));
+            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), new WindsorCompositionRoot(container));
 
             container.Install(
                 new InfrastructureLayerInstall(),

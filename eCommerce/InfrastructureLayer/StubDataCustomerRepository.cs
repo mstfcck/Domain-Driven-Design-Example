@@ -1,12 +1,8 @@
 ﻿using eCommerce.DomainModelLayer.Countries;
 using eCommerce.DomainModelLayer.Customers;
-using eCommerce.DomainModelLayer.Products;
-using eCommerce.Helpers.Repository;
 using eCommerce.Helpers.Specification;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace eCommerce.InfrastructureLayer
 {

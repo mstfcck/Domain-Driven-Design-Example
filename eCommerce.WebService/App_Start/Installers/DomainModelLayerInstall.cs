@@ -1,4 +1,5 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using System;
+using Castle.MicroKernel.Registration;
 using eCommerce.DomainModelLayer;
 using eCommerce.DomainModelLayer.Carts;
 using eCommerce.DomainModelLayer.Countries;
@@ -6,11 +7,10 @@ using eCommerce.DomainModelLayer.Customers;
 using eCommerce.DomainModelLayer.Products;
 using eCommerce.DomainModelLayer.Tax;
 using eCommerce.Helpers.Domain;
-using System;
 
-namespace eCommerce.WebService.App_Start.Installers
+namespace eCommerce.WebService.Installers
 {
-    public class DomainModelLayerInstall : Castle.MicroKernel.Registration.IWindsorInstaller
+    public class DomainModelLayerInstall : IWindsorInstaller
     {
         public void Install(Castle.Windsor.IWindsorContainer container, Castle.MicroKernel.SubSystems.Configuration.IConfigurationStore store)
         {
