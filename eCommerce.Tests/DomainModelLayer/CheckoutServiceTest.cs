@@ -1,8 +1,10 @@
 ﻿using eCommerce.DomainModelLayer.Carts;
 using eCommerce.DomainModelLayer.Customers;
 using eCommerce.DomainModelLayer.Products;
+using eCommerce.DomainModelLayer.Products.Enums;
 using eCommerce.DomainModelLayer.Purchases;
 using eCommerce.DomainModelLayer.Services;
+using eCommerce.DomainModelLayer.Services.Enums;
 using eCommerce.Helpers.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;

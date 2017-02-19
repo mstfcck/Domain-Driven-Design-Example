@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace eCommerce.ApplicationLayer.History
+namespace eCommerce.ApplicationLayer.History.Dtos
 {
     public class EventDto
     {

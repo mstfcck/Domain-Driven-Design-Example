@@ -1,8 +1,12 @@
 ﻿using AutoMapper;
 using eCommerce.ApplicationLayer.Carts;
+using eCommerce.ApplicationLayer.Carts.Dtos;
 using eCommerce.ApplicationLayer.Customers;
+using eCommerce.ApplicationLayer.Customers.Dtos;
 using eCommerce.ApplicationLayer.History;
+using eCommerce.ApplicationLayer.History.Dtos;
 using eCommerce.ApplicationLayer.Products;
+using eCommerce.ApplicationLayer.Products.Dtos;
 using eCommerce.DomainModelLayer.Carts;
 using eCommerce.DomainModelLayer.Customers;
 using eCommerce.DomainModelLayer.Customers.ReadModels;

@@ -2,6 +2,7 @@
 using eCommerce.WebService.Models;
 using System;
 using System.Web.Http;
+using eCommerce.ApplicationLayer.History.Dtos;
 
 namespace eCommerce.WebService.Controllers
 {

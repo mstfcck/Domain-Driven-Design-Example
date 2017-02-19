@@ -1,4 +1,5 @@
-﻿using eCommerce.Helpers.Domain;
+﻿using eCommerce.ApplicationLayer.History.Dtos;
+using eCommerce.Helpers.Domain;
 using eCommerce.Helpers.Repository;
 using System.Collections.Generic;
 

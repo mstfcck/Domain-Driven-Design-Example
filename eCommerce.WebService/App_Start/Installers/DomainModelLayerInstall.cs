@@ -1,12 +1,13 @@
-﻿using System;
-using Castle.MicroKernel.Registration;
+﻿using Castle.MicroKernel.Registration;
 using eCommerce.DomainModelLayer;
-using eCommerce.DomainModelLayer.Carts;
+using eCommerce.DomainModelLayer.Carts.DomainEvents;
 using eCommerce.DomainModelLayer.Countries;
-using eCommerce.DomainModelLayer.Customers;
-using eCommerce.DomainModelLayer.Products;
-using eCommerce.DomainModelLayer.Tax;
+using eCommerce.DomainModelLayer.Countries.DomainEvents;
+using eCommerce.DomainModelLayer.Customers.DomainEvents;
+using eCommerce.DomainModelLayer.Products.DomainEvents;
+using eCommerce.DomainModelLayer.Tax.DomainEvents;
 using eCommerce.Helpers.Domain;
+using System;
 
 namespace eCommerce.WebService.Installers
 {
@@ -29,19 +30,19 @@ namespace eCommerce.WebService.Installers
                     )
                );
 
-            container.Register(Component.For<Handles<CartCreated>>().ImplementedBy<DomainEventHandle<CartCreated>>().LifestyleSingleton());
-            container.Register(Component.For<Handles<ProductAddedCart>>().ImplementedBy<DomainEventHandle<ProductAddedCart>>().LifestyleSingleton());
-            container.Register(Component.For<Handles<ProductRemovedCart>>().ImplementedBy<DomainEventHandle<ProductRemovedCart>>().LifestyleSingleton());
-            container.Register(Component.For<Handles<CountryCreated>>().ImplementedBy<DomainEventHandle<CountryCreated>>().LifestyleSingleton());
-            container.Register(Component.For<Handles<CreditCardAdded>>().ImplementedBy<DomainEventHandle<CreditCardAdded>>().LifestyleSingleton());
-            container.Register(Component.For<Handles<CustomerChangedEmail>>().ImplementedBy<DomainEventHandle<CustomerChangedEmail>>().LifestyleSingleton());
-            container.Register(Component.For<Handles<CustomerCheckedOut>>().ImplementedBy<DomainEventHandle<CustomerCheckedOut>>().LifestyleSingleton());
-            container.Register(Component.For<Handles<CustomerCreated>>().ImplementedBy<DomainEventHandle<CustomerCreated>>().LifestyleSingleton());
-            container.Register(Component.For<Handles<ProductCodeCreated>>().ImplementedBy<DomainEventHandle<ProductCodeCreated>>().LifestyleSingleton());
-            container.Register(Component.For<Handles<ProductCreated>>().ImplementedBy<DomainEventHandle<ProductCreated>>().LifestyleSingleton());
-            container.Register(Component.For<Handles<CountryTaxCreated>>().ImplementedBy<DomainEventHandle<CountryTaxCreated>>().LifestyleSingleton());
+            container.Register(Component.For<Handles<CartCreatedDomainEvent>>().ImplementedBy<DomainEventHandle<CartCreatedDomainEvent>>().LifestyleSingleton());
+            container.Register(Component.For<Handles<ProductAddedCartDomainEvent>>().ImplementedBy<DomainEventHandle<ProductAddedCartDomainEvent>>().LifestyleSingleton());
+            container.Register(Component.For<Handles<ProductRemovedCartDomainEvent>>().ImplementedBy<DomainEventHandle<ProductRemovedCartDomainEvent>>().LifestyleSingleton());
+            container.Register(Component.For<Handles<CountryCreatedDomainEvent>>().ImplementedBy<DomainEventHandle<CountryCreatedDomainEvent>>().LifestyleSingleton());
+            container.Register(Component.For<Handles<CreditCardAddedDomainEvent>>().ImplementedBy<DomainEventHandle<CreditCardAddedDomainEvent>>().LifestyleSingleton());
+            container.Register(Component.For<Handles<CustomerChangedEmailDomainEvent>>().ImplementedBy<DomainEventHandle<CustomerChangedEmailDomainEvent>>().LifestyleSingleton());
+            container.Register(Component.For<Handles<CustomerCheckOutDomainEvent>>().ImplementedBy<DomainEventHandle<CustomerCheckOutDomainEvent>>().LifestyleSingleton());
+            container.Register(Component.For<Handles<CustomerCreatedDomainEvent>>().ImplementedBy<DomainEventHandle<CustomerCreatedDomainEvent>>().LifestyleSingleton());
+            container.Register(Component.For<Handles<ProductCodeCreatedDomainEvent>>().ImplementedBy<DomainEventHandle<ProductCodeCreatedDomainEvent>>().LifestyleSingleton());
+            container.Register(Component.For<Handles<ProductCreatedDomainEvent>>().ImplementedBy<DomainEventHandle<ProductCreatedDomainEvent>>().LifestyleSingleton());
+            container.Register(Component.For<Handles<CountryTaxCreatedDomainEvent>>().ImplementedBy<DomainEventHandle<CountryTaxCreatedDomainEvent>>().LifestyleSingleton());
 
-            DomainEvents.Init(container);
+            DomainEventsHelper.Init(container);
         }
     }
 }

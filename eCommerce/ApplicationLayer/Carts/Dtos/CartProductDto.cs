@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace eCommerce.ApplicationLayer.Carts
+namespace eCommerce.ApplicationLayer.Carts.Dtos
 {
     public class CartProductDto
     {

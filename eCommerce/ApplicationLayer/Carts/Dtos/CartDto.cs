@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace eCommerce.ApplicationLayer.Carts
+namespace eCommerce.ApplicationLayer.Carts.Dtos
 {
     public class CartDto
     {

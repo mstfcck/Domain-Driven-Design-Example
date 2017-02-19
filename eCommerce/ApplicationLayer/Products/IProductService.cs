@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eCommerce.ApplicationLayer.Products.Dtos;
+using System;
 
 namespace eCommerce.ApplicationLayer.Products
 {

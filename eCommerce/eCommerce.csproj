@@ -62,22 +62,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationLayer\Carts\CartService.cs" />
-    <Compile Include="ApplicationLayer\Carts\CheckOutResultDto.cs" />
+    <Compile Include="ApplicationLayer\Carts\Dtos\CheckOutResultDto.cs" />
     <Compile Include="ApplicationLayer\Carts\ICartService.cs" />
-    <Compile Include="ApplicationLayer\Carts\CartDto.cs" />
-    <Compile Include="ApplicationLayer\Carts\CartProductDto.cs" />
-    <Compile Include="ApplicationLayer\Customers\CreditCardDto.cs" />
-    <Compile Include="ApplicationLayer\Customers\CustomerDto.cs" />
-    <Compile Include="ApplicationLayer\Customers\CustomerPurchaseHistoryDto.cs" />
+    <Compile Include="ApplicationLayer\Carts\Dtos\CartDto.cs" />
+    <Compile Include="ApplicationLayer\Carts\Dtos\CartProductDto.cs" />
+    <Compile Include="ApplicationLayer\Customers\Dtos\CreditCardDto.cs" />
+    <Compile Include="ApplicationLayer\Customers\Dtos\CustomerDto.cs" />
+    <Compile Include="ApplicationLayer\Customers\Dtos\CustomerPurchaseHistoryDto.cs" />
     <Compile Include="ApplicationLayer\Customers\CustomerService.cs" />
     <Compile Include="ApplicationLayer\Customers\ICustomerService.cs" />
-    <Compile Include="ApplicationLayer\History\EventDto.cs" />
-    <Compile Include="ApplicationLayer\History\HistoryDto.cs" />
+    <Compile Include="ApplicationLayer\History\Dtos\EventDto.cs" />
+    <Compile Include="ApplicationLayer\History\Dtos\HistoryDto.cs" />
     <Compile Include="ApplicationLayer\History\HistoryService.cs" />
     <Compile Include="ApplicationLayer\History\IHistoryService.cs" />
     <Compile Include="ApplicationLayer\Map.cs" />
     <Compile Include="ApplicationLayer\Products\IProductService.cs" />
-    <Compile Include="ApplicationLayer\Products\ProductDto.cs" />
+    <Compile Include="ApplicationLayer\Products\Dtos\ProductDto.cs" />
     <Compile Include="ApplicationLayer\Products\ProductService.cs" />
     <Compile Include="DomainModelLayer\Carts\DomainEvents\CartCreatedDomainEvent.cs" />
     <Compile Include="DomainModelLayer\Carts\Specs\CustomerCartSpec.cs" />

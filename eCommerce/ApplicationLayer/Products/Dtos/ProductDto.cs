@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace eCommerce.ApplicationLayer.Products
+namespace eCommerce.ApplicationLayer.Products.Dtos
 {
     public class ProductDto
     {

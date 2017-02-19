@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace eCommerce.ApplicationLayer.Customers
+namespace eCommerce.ApplicationLayer.Customers.Dtos
 {
     public class CreditCardDto
     {

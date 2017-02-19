@@ -1,20 +1,16 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using eCommerce.DomainModelLayer.Customers;
-using Moq;
-using FluentAssertions;
-using eCommerce.DomainModelLayer.Purchases;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using FluentAssertions.Equivalency;
-using eCommerce.Helpers.Domain;
-using eCommerce.DomainModelLayer.Services;
-using eCommerce.DomainModelLayer;
-using eCommerce.Helpers.Repository;
-using eCommerce.DomainModelLayer.Tax;
+﻿using eCommerce.DomainModelLayer;
 using eCommerce.DomainModelLayer.Countries;
+using eCommerce.DomainModelLayer.Customers;
 using eCommerce.DomainModelLayer.Products;
-using eCommerce.DomainModelLayer.Customers.Spec;
+using eCommerce.DomainModelLayer.Services;
+using eCommerce.DomainModelLayer.Tax;
+using eCommerce.DomainModelLayer.Tax.Enums;
+using eCommerce.DomainModelLayer.Tax.Specs;
+using eCommerce.Helpers.Repository;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using System;
 
 namespace eCommerce.Tests.DomainModelLayer
 {
@@ -29,7 +25,7 @@ namespace eCommerce.Tests.DomainModelLayer
 
             Mock<Settings> settings = new Mock<Settings>();
             settings.SetupGet(x => x.BusinessCountry).Returns(new Country());
-            
+
             Mock<Customer> customer = new Mock<Customer>();
             customer.SetupGet(x => x.CountryId).Returns(Guid.Empty);
 

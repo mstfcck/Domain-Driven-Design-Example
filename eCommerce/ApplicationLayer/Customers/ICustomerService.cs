@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eCommerce.ApplicationLayer.Customers.Dtos;
+using System;
 using System.Collections.Generic;
 
 namespace eCommerce.ApplicationLayer.Customers

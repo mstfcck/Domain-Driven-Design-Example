@@ -1,4 +1,6 @@
-﻿namespace eCommerce.ApplicationLayer.History
+﻿using eCommerce.ApplicationLayer.History.Dtos;
+
+namespace eCommerce.ApplicationLayer.History
 {
     public interface IHistoryService
     {
