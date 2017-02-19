@@ -1,10 +1,4 @@
-﻿using eCommerce.Helpers.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace eCommerce.Helpers.Specification
+﻿namespace eCommerce.Helpers.Specification
 {
     public static class IExtensions
     {

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using eCommerce.DomainModelLayer.Products.DomainEvents;
 using eCommerce.Helpers.Domain;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace eCommerce.DomainModelLayer.Products
@@ -10,7 +9,6 @@ namespace eCommerce.DomainModelLayer.Products
     public class Product : IAggregateRoot
     {
         private List<Return> returns = new List<Return>();
-
 
         public virtual Guid Id { get; protected set; }
         public virtual string Name { get; protected set; }
@@ -20,6 +18,7 @@ namespace eCommerce.DomainModelLayer.Products
         public virtual int Quantity { get; protected set; }
         public virtual decimal Cost { get; protected set; }
         public virtual ProductCode Code { get; protected set; }
+
         public virtual ReadOnlyCollection<Return> Returns
         {
             get
@@ -47,7 +46,7 @@ namespace eCommerce.DomainModelLayer.Products
                 Code = productCode
             };
 
-            DomainEvents.Raise<ProductCreated>(new ProductCreated() { Product = product });
+            DomainEventsHelper.Raise<ProductCreatedDomainEvent>(new ProductCreatedDomainEvent() { Product = product });
 
             return product;
         }

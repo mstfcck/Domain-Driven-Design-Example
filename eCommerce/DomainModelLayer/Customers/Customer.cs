@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using eCommerce.DomainModelLayer.Countries;
+using eCommerce.DomainModelLayer.Customers.DomainEvents;
+using eCommerce.DomainModelLayer.Customers.Specs;
 using eCommerce.Helpers.Domain;
-using eCommerce.DomainModelLayer.Purchases;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using eCommerce.DomainModelLayer.Carts;
-using eCommerce.DomainModelLayer.Customers.Spec;
-using eCommerce.DomainModelLayer.Countries;
 
 namespace eCommerce.DomainModelLayer.Customers
 {
@@ -27,10 +24,10 @@ namespace eCommerce.DomainModelLayer.Customers
 
         public virtual void ChangeEmail(string email)
         {
-            if(this.Email != email)
+            if (this.Email != email)
             {
                 this.Email = email;
-                DomainEvents.Raise<CustomerChangedEmail>(new CustomerChangedEmail() { Customer = this });
+                DomainEventsHelper.Raise<CustomerChangedEmailDomainEvent>(new CustomerChangedEmailDomainEvent() { Customer = this });
             }
         }
 
@@ -62,7 +59,7 @@ namespace eCommerce.DomainModelLayer.Customers
                 CountryId = country.Id
             };
 
-            DomainEvents.Raise<CustomerCreated>(new CustomerCreated() { Customer = customer });
+            DomainEventsHelper.Raise<CustomerCreatedDomainEvent>(new CustomerCreatedDomainEvent() { Customer = customer });
 
             return customer;
         }
@@ -76,7 +73,7 @@ namespace eCommerce.DomainModelLayer.Customers
         {
             this.creditCards.Add(creditCard);
 
-            DomainEvents.Raise<CreditCardAdded>(new CreditCardAdded() { CreditCard = creditCard });
+            DomainEventsHelper.Raise<CreditCardAddedDomainEvent>(new CreditCardAddedDomainEvent() { CreditCard = creditCard });
         }
     }
 }

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using eCommerce.DomainModelLayer.Customers;
-using eCommerce.DomainModelLayer.Products;
-using eCommerce.DomainModelLayer.Carts;
+﻿using eCommerce.DomainModelLayer.Carts.Enums;
+using System;
 
 namespace eCommerce.ApplicationLayer.Carts
 {

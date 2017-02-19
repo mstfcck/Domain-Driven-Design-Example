@@ -1,15 +1,13 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using eCommerce.DomainModelLayer.Countries;
 using eCommerce.DomainModelLayer.Customers;
-using Moq;
+using eCommerce.DomainModelLayer.Customers.DomainEvents;
+using eCommerce.Helpers.Domain;
 using FluentAssertions;
-using eCommerce.DomainModelLayer.Purchases;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using FluentAssertions.Equivalency;
-using eCommerce.Helpers.Domain;
-using eCommerce.DomainModelLayer.Countries;
-using eCommerce.DomainModelLayer.Carts;
 
 namespace eCommerce.Tests.DomainModelLayer
 {
@@ -76,7 +74,7 @@ namespace eCommerce.Tests.DomainModelLayer
         [ExpectedException(typeof(Exception))]
         public void ChangeEmail_PassedNewEmailAddress_ThrowsExceptionEventRaised()
         {
-            DomainEvents.Register<CustomerChangedEmail>((evnt) => { throw new Exception("Event Raised"); });
+            DomainEventsHelper.Register<CustomerChangedEmailDomainEvent>((evnt) => { throw new Exception("Event Raised"); });
 
             Customer actual = Customer.Create("john", "smith", "john.smith@microsoft.com", new Country());
             actual.ChangeEmail("smith.john@microsoft.com");
@@ -85,7 +83,7 @@ namespace eCommerce.Tests.DomainModelLayer
         [TestMethod, TestCategory("Unit")]
         public void ChangeEmail_PassedSameEmailAddress_DoesNotThrowEventRaisedException()
         {
-            DomainEvents.Register<CustomerChangedEmail>((evnt) => { throw new Exception("Event Raised"); });
+            DomainEventsHelper.Register<CustomerChangedEmailDomainEvent>((evnt) => { throw new Exception("Event Raised"); });
 
             Customer actual = Customer.Create("john", "smith", "john.smith@microsoft.com", new Country());
             actual.ChangeEmail("john.smith@microsoft.com");

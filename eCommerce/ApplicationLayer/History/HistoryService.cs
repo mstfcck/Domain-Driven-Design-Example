@@ -1,15 +1,12 @@
 ﻿using eCommerce.Helpers.Domain;
 using eCommerce.Helpers.Repository;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace eCommerce.ApplicationLayer.History
 {
     public class HistoryService : IHistoryService
     {
-        IDomainEventRepository domainEventRepository;
+        private IDomainEventRepository domainEventRepository;
 
         public HistoryService(IDomainEventRepository domainEventRepository)
         {

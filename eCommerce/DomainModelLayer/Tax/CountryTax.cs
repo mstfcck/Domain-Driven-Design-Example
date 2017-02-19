@@ -1,9 +1,8 @@
 ﻿using eCommerce.DomainModelLayer.Countries;
+using eCommerce.DomainModelLayer.Tax.DomainEvents;
+using eCommerce.DomainModelLayer.Tax.Enums;
 using eCommerce.Helpers.Domain;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace eCommerce.DomainModelLayer.Tax
 {
@@ -29,7 +28,7 @@ namespace eCommerce.DomainModelLayer.Tax
                 Type = type
             };
 
-            DomainEvents.Raise<CountryTaxCreated>(new CountryTaxCreated() { CountryTax = countryTax });
+            DomainEventsHelper.Raise<CountryTaxCreatedDomainEvent>(new CountryTaxCreatedDomainEvent() { CountryTax = countryTax });
 
             return countryTax;
         }

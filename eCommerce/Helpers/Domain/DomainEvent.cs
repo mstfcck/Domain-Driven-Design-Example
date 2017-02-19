@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace eCommerce.Helpers.Domain
 {
-    public abstract class DomainEvent 
+    public abstract class DomainEvent
     {
         public string Type { get { return this.GetType().Name; } }
 
@@ -11,7 +11,7 @@ namespace eCommerce.Helpers.Domain
 
         public Dictionary<string, Object> Args { get; private set; }
 
-        public string CorrelationID { get;  set; }
+        public string CorrelationID { get; set; }
 
         public DomainEvent()
         {

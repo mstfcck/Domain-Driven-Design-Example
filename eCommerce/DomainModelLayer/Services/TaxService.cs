@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using eCommerce.DomainModelLayer.Customers;
+﻿using eCommerce.DomainModelLayer.Customers;
 using eCommerce.DomainModelLayer.Products;
-using eCommerce.Helpers.Repository;
 using eCommerce.DomainModelLayer.Tax;
-using eCommerce.DomainModelLayer.Customers.Spec;
+using eCommerce.DomainModelLayer.Tax.Enums;
+using eCommerce.DomainModelLayer.Tax.Specs;
 using eCommerce.Helpers.Domain;
+using eCommerce.Helpers.Repository;
+using System;
 
 namespace eCommerce.DomainModelLayer.Services
 {
     public class TaxService : IDomainService
     {
-        readonly IRepository<CountryTax> countryTax;
-        readonly Settings settings;
+        private readonly IRepository<CountryTax> countryTax;
+        private readonly Settings settings;
 
         public TaxService(Settings settings, IRepository<CountryTax> countryTax)
         {

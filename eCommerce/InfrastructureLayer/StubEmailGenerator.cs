@@ -1,4 +1,5 @@
 ﻿using eCommerce.DomainModelLayer.Email;
+using eCommerce.DomainModelLayer.Email.Enums;
 using System.Net.Mail;
 
 namespace eCommerce.InfrastructureLayer

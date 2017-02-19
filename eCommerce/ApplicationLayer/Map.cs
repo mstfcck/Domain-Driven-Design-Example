@@ -5,6 +5,7 @@ using eCommerce.ApplicationLayer.History;
 using eCommerce.ApplicationLayer.Products;
 using eCommerce.DomainModelLayer.Carts;
 using eCommerce.DomainModelLayer.Customers;
+using eCommerce.DomainModelLayer.Customers.ReadModels;
 using eCommerce.DomainModelLayer.Products;
 using eCommerce.DomainModelLayer.Purchases;
 using eCommerce.Helpers.Domain;

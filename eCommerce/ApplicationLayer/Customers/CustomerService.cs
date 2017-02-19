@@ -1,21 +1,23 @@
-﻿using eCommerce.Helpers.Repository;
-using eCommerce.Helpers.Specification;
+﻿using eCommerce.DomainModelLayer.Countries;
 using eCommerce.DomainModelLayer.Customers;
+using eCommerce.DomainModelLayer.Customers.ReadModels;
+using eCommerce.DomainModelLayer.Customers.Specs;
+using eCommerce.DomainModelLayer.Purchases;
+using eCommerce.DomainModelLayer.Purchases.Specs;
+using eCommerce.Helpers.Repository;
+using eCommerce.Helpers.Specification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using eCommerce.DomainModelLayer.Countries;
-using eCommerce.DomainModelLayer.Purchases;
 
 namespace eCommerce.ApplicationLayer.Customers
 {
     public class CustomerService : ICustomerService
     {
-        readonly ICustomerRepository customerRepository;
-        readonly IRepository<Country> countryRepository;
-        readonly IRepository<Purchase> purchaseRepository;
-        readonly IUnitOfWork unitOfWork;
+        private readonly ICustomerRepository customerRepository;
+        private readonly IRepository<Country> countryRepository;
+        private readonly IRepository<Purchase> purchaseRepository;
+        private readonly IUnitOfWork unitOfWork;
 
         public CustomerService(ICustomerRepository customerRepository,
             IRepository<Country> countryRepository, IRepository<Purchase> purchaseRepository, IUnitOfWork unitOfWork)
@@ -101,7 +103,6 @@ namespace eCommerce.ApplicationLayer.Customers
             return AutoMapper.Mapper.Map<Customer, CustomerDto>(customer);
         }
 
-
         public CreditCardDto Add(Guid customerId, CreditCardDto creditCardDto)
         {
             ISpecification<Customer> registeredSpec =
@@ -123,7 +124,7 @@ namespace eCommerce.ApplicationLayer.Customers
             return AutoMapper.Mapper.Map<CreditCard, CreditCardDto>(creditCard);
         }
 
-        //Approach 1 - Domain Model DTO Projection 
+        //Approach 1 - Domain Model DTO Projection
         public List<CustomerPurchaseHistoryDto> GetAllCustomerPurchaseHistoryV1()
         {
             IEnumerable<Guid> customersThatHavePurhcasedSomething =
@@ -152,7 +153,6 @@ namespace eCommerce.ApplicationLayer.Customers
                     customerPurchases.Sum(purchase => purchase.Products.Sum(product => product.Quantity));
                 customerPurchaseHistory.TotalCost = customerPurchases.Sum(purchase => purchase.TotalCost);
                 customersPurchaseHistory.Add(customerPurchaseHistory);
-
             }
             return customersPurchaseHistory;
         }

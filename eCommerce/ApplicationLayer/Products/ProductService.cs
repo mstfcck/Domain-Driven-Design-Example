@@ -1,19 +1,16 @@
-﻿using eCommerce.Helpers.Repository;
-using eCommerce.DomainModelLayer.Products;
+﻿using eCommerce.DomainModelLayer.Products;
+using eCommerce.Helpers.Repository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace eCommerce.ApplicationLayer.Products
 {
     public class ProductService : IProductService
     {
-        readonly IRepository<Product> productRepository;
-        readonly IRepository<ProductCode> productCodeRepository;
-        readonly IUnitOfWork unitOfWork;
+        private readonly IRepository<Product> productRepository;
+        private readonly IRepository<ProductCode> productCodeRepository;
+        private readonly IUnitOfWork unitOfWork;
 
-        public ProductService(IRepository<Product> productRepository, 
+        public ProductService(IRepository<Product> productRepository,
             IRepository<ProductCode> productCodeRepository,
             IUnitOfWork unitOfWork)
         {
@@ -33,10 +30,10 @@ namespace eCommerce.ApplicationLayer.Products
             ProductCode productCode =
                 this.productCodeRepository.FindById(productDto.ProductCodeId);
 
-            if(productCode == null)
+            if (productCode == null)
                 throw new Exception("Product Code Is Not Valid");
 
-            Product product = 
+            Product product =
                 Product.Create(productDto.Name, productDto.Quantity, productDto.Cost, productCode);
 
             this.productRepository.Add(product);

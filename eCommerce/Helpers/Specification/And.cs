@@ -5,8 +5,8 @@ namespace eCommerce.Helpers.Specification
 {
     public class And<T> : SpecificationBase<T>
     {
-        ISpecification<T> left;
-        ISpecification<T> right;
+        private ISpecification<T> left;
+        private ISpecification<T> right;
 
         public And(ISpecification<T> left, ISpecification<T> right)
         {

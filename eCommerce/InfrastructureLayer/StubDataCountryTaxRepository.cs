@@ -1,18 +1,16 @@
 ﻿using eCommerce.DomainModelLayer.Countries;
-using eCommerce.DomainModelLayer.Customers;
 using eCommerce.DomainModelLayer.Tax;
+using eCommerce.DomainModelLayer.Tax.Enums;
 using eCommerce.Helpers.Repository;
 using eCommerce.Helpers.Specification;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace eCommerce.InfrastructureLayer
 {
     public sealed class StubDataCountryTaxRepository : IRepository<CountryTax>
     {
-        readonly MemoryRepository<CountryTax> memRepository;
+        private readonly MemoryRepository<CountryTax> memRepository;
 
         public StubDataCountryTaxRepository(MemoryRepository<CountryTax> memRepository)
         {

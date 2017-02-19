@@ -1,22 +1,24 @@
-﻿using System;
-using eCommerce.Helpers.Repository;
+﻿using AutoMapper;
+using eCommerce.DomainModelLayer.Carts;
+using eCommerce.DomainModelLayer.Carts.Enums;
+using eCommerce.DomainModelLayer.Carts.Specs;
 using eCommerce.DomainModelLayer.Customers;
 using eCommerce.DomainModelLayer.Products;
 using eCommerce.DomainModelLayer.Purchases;
-using eCommerce.DomainModelLayer.Carts;
 using eCommerce.DomainModelLayer.Services;
-using AutoMapper;
+using eCommerce.Helpers.Repository;
+using System;
 
 namespace eCommerce.ApplicationLayer.Carts
 {
     public class CartService : ICartService
     {
-        IRepository<Customer> customerRepository;
-        IRepository<Product> productRepository;
-        IRepository<Cart> cartRepository;
-        IUnitOfWork unitOfWork;
-        TaxService taxDomainService;
-        CheckoutService checkoutDomainService;
+        private IRepository<Customer> customerRepository;
+        private IRepository<Product> productRepository;
+        private IRepository<Cart> cartRepository;
+        private IUnitOfWork unitOfWork;
+        private TaxService taxDomainService;
+        private CheckoutService checkoutDomainService;
 
         public CartService(IRepository<Customer> customerRepository, IRepository<Product> productRepository, IRepository<Cart> cartRepository, IUnitOfWork unitOfWork, TaxService taxDomainService, CheckoutService checkoutDomainService)
         {

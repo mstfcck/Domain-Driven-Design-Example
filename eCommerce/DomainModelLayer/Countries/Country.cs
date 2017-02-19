@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using eCommerce.DomainModelLayer.Countries.DomainEvents;
 using eCommerce.Helpers.Domain;
+using System;
 
 namespace eCommerce.DomainModelLayer.Countries
 {
@@ -24,7 +22,7 @@ namespace eCommerce.DomainModelLayer.Countries
                 Name = name
             };
 
-            DomainEvents.Raise<CountryCreated>(new CountryCreated() { Country = country });
+            DomainEventsHelper.Raise<CountryCreatedDomainEvent>(new CountryCreatedDomainEvent() { Country = country });
 
             return country;
         }

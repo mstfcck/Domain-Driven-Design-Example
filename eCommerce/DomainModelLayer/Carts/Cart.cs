@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using eCommerce.Helpers.Domain;
-using System.Collections.ObjectModel;
+﻿using eCommerce.DomainModelLayer.Carts.DomainEvents;
+using eCommerce.DomainModelLayer.Carts.Specs;
 using eCommerce.DomainModelLayer.Customers;
 using eCommerce.DomainModelLayer.Products;
+using eCommerce.Helpers.Domain;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace eCommerce.DomainModelLayer.Carts
 {
@@ -46,7 +48,7 @@ namespace eCommerce.DomainModelLayer.Carts
             cart.Id = Guid.NewGuid();
             cart.CustomerId = customer.Id;
 
-            DomainEvents.Raise<CartCreated>(new CartCreated() { Cart = cart });
+            DomainEventsHelper.Raise<CartCreatedDomainEvent>(new CartCreatedDomainEvent() { Cart = cart });
 
             return cart;
         }
@@ -56,7 +58,7 @@ namespace eCommerce.DomainModelLayer.Carts
             if (cartProduct == null)
                 throw new ArgumentNullException();
 
-            DomainEvents.Raise<ProductAddedCart>(new ProductAddedCart() { CartProduct = cartProduct });
+            DomainEventsHelper.Raise<ProductAddedCartDomainEvent>(new ProductAddedCartDomainEvent() { CartProduct = cartProduct });
 
             this.cartProducts.Add(cartProduct);
         }
@@ -69,7 +71,7 @@ namespace eCommerce.DomainModelLayer.Carts
             CartProduct cartProduct =
                 this.cartProducts.Find(new ProductInCartSpec(product).IsSatisfiedBy);
 
-            DomainEvents.Raise<ProductRemovedCart>(new ProductRemovedCart() { CartProduct = cartProduct });
+            DomainEventsHelper.Raise<ProductRemovedCartDomainEvent>(new ProductRemovedCartDomainEvent() { CartProduct = cartProduct });
 
             this.cartProducts.Remove(cartProduct);
         }

@@ -1,17 +1,14 @@
 ﻿using eCommerce.DomainModelLayer.Countries;
-using eCommerce.DomainModelLayer.Customers;
 using eCommerce.Helpers.Repository;
 using eCommerce.Helpers.Specification;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace eCommerce.InfrastructureLayer
 {
     public sealed class StubDataCountryRepository : IRepository<Country>
     {
-        MemoryRepository<Country> memRepository;
+        private MemoryRepository<Country> memRepository;
 
         public StubDataCountryRepository(MemoryRepository<Country> memRepository)
         {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using eCommerce.DomainModelLayer.Countries;
+﻿using eCommerce.DomainModelLayer.Countries;
 
 namespace eCommerce.DomainModelLayer
 {
@@ -12,7 +8,6 @@ namespace eCommerce.DomainModelLayer
 
         public Settings()
         {
-            
         }
 
         public Settings(Country businessCountry)

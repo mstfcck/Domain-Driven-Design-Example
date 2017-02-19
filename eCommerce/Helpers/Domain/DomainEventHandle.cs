@@ -5,11 +5,10 @@ namespace eCommerce.Helpers.Domain
 {
     public class DomainEventHandle<TDomainEvent> : Handles<TDomainEvent> where TDomainEvent : DomainEvent
     {
-        IDomainEventRepository domainEventRepository;
-        IRequestCorrelationIdentifier requestCorrelationIdentifier;
+        private IDomainEventRepository domainEventRepository;
+        private IRequestCorrelationIdentifier requestCorrelationIdentifier;
 
-        public DomainEventHandle(IDomainEventRepository domainEventRepository,
-            IRequestCorrelationIdentifier requestCorrelationIdentifier)
+        public DomainEventHandle(IDomainEventRepository domainEventRepository, IRequestCorrelationIdentifier requestCorrelationIdentifier)
         {
             this.domainEventRepository = domainEventRepository;
             this.requestCorrelationIdentifier = requestCorrelationIdentifier;

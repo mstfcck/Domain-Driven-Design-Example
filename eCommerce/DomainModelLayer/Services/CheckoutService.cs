@@ -1,25 +1,26 @@
 ﻿using eCommerce.DomainModelLayer.Carts;
+using eCommerce.DomainModelLayer.Carts.Enums;
 using eCommerce.DomainModelLayer.Customers;
+using eCommerce.DomainModelLayer.Customers.DomainEvents;
 using eCommerce.DomainModelLayer.Products;
+using eCommerce.DomainModelLayer.Products.Enums;
+using eCommerce.DomainModelLayer.Products.Specs;
 using eCommerce.DomainModelLayer.Purchases;
+using eCommerce.DomainModelLayer.Services.Enums;
 using eCommerce.Helpers.Domain;
 using eCommerce.Helpers.Repository;
 using eCommerce.Helpers.Specification;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace eCommerce.DomainModelLayer.Services
 {
     public class CheckoutService : IDomainService
     {
-        ICustomerRepository customerRepository;
-        IRepository<Purchase> purchaseRepository;
-        IRepository<Product> productRepository;
+        private ICustomerRepository customerRepository;
+        private IRepository<Purchase> purchaseRepository;
+        private IRepository<Product> productRepository;
 
-        public CheckoutService(ICustomerRepository customerRepository, 
-            IRepository<Purchase> purchaseRepository, IRepository<Product> productRepository)
+        public CheckoutService(ICustomerRepository customerRepository, IRepository<Purchase> purchaseRepository, IRepository<Product> productRepository)
         {
             this.customerRepository = customerRepository;
             this.purchaseRepository = purchaseRepository;
@@ -85,10 +86,9 @@ namespace eCommerce.DomainModelLayer.Services
 
             cart.Clear();
 
-            DomainEvents.Raise<CustomerCheckedOut>(new CustomerCheckedOut() { Purchase = purchase });
+            DomainEventsHelper.Raise<CustomerCheckOutDomainEvent>(new CustomerCheckOutDomainEvent() { Purchase = purchase });
 
             return purchase;
         }
-
     }
 }

@@ -8,7 +8,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace eCommerce.Tests.DomainModelLayer
 {
@@ -26,13 +25,12 @@ namespace eCommerce.Tests.DomainModelLayer
             Mock<ICustomerRepository> customerRepository = new Mock<ICustomerRepository>();
             Mock<IRepository<Purchase>> purchaseRepository = new Mock<IRepository<Purchase>>();
             Mock<IRepository<Product>> productRepository = new Mock<IRepository<Product>>();
-            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object, 
-                productRepository.Object);
+            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object, productRepository.Object);
 
 
             PaymentStatus actual = checkoutService.CustomerCanPay(customer.Object);
 
-            Assert.AreEqual(expected, actual);    
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod, TestCategory("Unit")]
@@ -47,8 +45,7 @@ namespace eCommerce.Tests.DomainModelLayer
             Mock<ICustomerRepository> customerRepository = new Mock<ICustomerRepository>();
             Mock<IRepository<Purchase>> purchaseRepository = new Mock<IRepository<Purchase>>();
             Mock<IRepository<Product>> productRepository = new Mock<IRepository<Product>>();
-            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object,
-                productRepository.Object);
+            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object, productRepository.Object);
 
 
             PaymentStatus actual = checkoutService.CustomerCanPay(customer.Object);
@@ -74,8 +71,7 @@ namespace eCommerce.Tests.DomainModelLayer
             Mock<ICustomerRepository> customerRepository = new Mock<ICustomerRepository>();
             Mock<IRepository<Purchase>> purchaseRepository = new Mock<IRepository<Purchase>>();
             Mock<IRepository<Product>> productRepository = new Mock<IRepository<Product>>();
-            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object, 
-                productRepository.Object);
+            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object, productRepository.Object);
 
             PaymentStatus actual = checkoutService.CustomerCanPay(customer.Object);
 
@@ -95,8 +91,7 @@ namespace eCommerce.Tests.DomainModelLayer
             Mock<ICustomerRepository> customerRepository = new Mock<ICustomerRepository>();
             Mock<IRepository<Purchase>> purchaseRepository = new Mock<IRepository<Purchase>>();
             Mock<IRepository<Product>> productRepository = new Mock<IRepository<Product>>();
-            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object,
-                productRepository.Object);
+            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object, productRepository.Object);
 
             checkoutService.ProductCanBePurchased(cart.Object);
         }
@@ -123,8 +118,7 @@ namespace eCommerce.Tests.DomainModelLayer
             product.SetupGet(x => x.Active).Returns(true);
             productRepository.Setup(x => x.FindById(It.IsAny<Guid>())).Returns(product.Object);
 
-            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object,
-                productRepository.Object);
+            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object, productRepository.Object);
 
             ProductState actual = checkoutService.ProductCanBePurchased(cart.Object);
 
@@ -155,8 +149,7 @@ namespace eCommerce.Tests.DomainModelLayer
 
             productRepository.Setup(x => x.FindById(It.IsAny<Guid>())).Returns(product.Object);
 
-            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object,
-                productRepository.Object);
+            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object, productRepository.Object);
 
             ProductState actual = checkoutService.ProductCanBePurchased(cart.Object);
 
@@ -185,8 +178,7 @@ namespace eCommerce.Tests.DomainModelLayer
             product.SetupGet(x => x.Active).Returns(true);
             productRepository.Setup(x => x.FindById(It.IsAny<Guid>())).Returns(product.Object);
 
-            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object,
-                productRepository.Object);
+            CheckoutService checkoutService = new CheckoutService(customerRepository.Object, purchaseRepository.Object, productRepository.Object);
 
             ProductState actual = checkoutService.ProductCanBePurchased(cart.Object);
 

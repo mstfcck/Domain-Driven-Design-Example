@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using eCommerce.DomainModelLayer.Products.DomainEvents;
 using eCommerce.Helpers.Domain;
+using System;
 
 namespace eCommerce.DomainModelLayer.Products
 {
@@ -24,7 +22,7 @@ namespace eCommerce.DomainModelLayer.Products
                 Name = name
             };
 
-            DomainEvents.Raise<ProductCodeCreated>(new ProductCodeCreated() { ProductCode = productCode });
+            DomainEventsHelper.Raise<ProductCodeCreatedDomainEvent>(new ProductCodeCreatedDomainEvent() { ProductCode = productCode });
 
             return productCode;
         }

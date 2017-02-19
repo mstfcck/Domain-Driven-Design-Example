@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace eCommerce.DomainModelLayer.Customers
 {
@@ -39,7 +36,7 @@ namespace eCommerce.DomainModelLayer.Customers
                 Created = DateTime.Today
             };
 
-            if(customer.CreditCards.Contains(creditCard))
+            if (customer.CreditCards.Contains(creditCard))
                 throw new Exception("Can't add same card to the collection");
 
             return creditCard;

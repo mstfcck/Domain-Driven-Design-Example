@@ -1,18 +1,14 @@
-﻿using eCommerce.DomainModelLayer.Countries;
-using eCommerce.DomainModelLayer.Customers;
-using eCommerce.DomainModelLayer.Products;
+﻿using eCommerce.DomainModelLayer.Products;
 using eCommerce.Helpers.Repository;
 using eCommerce.Helpers.Specification;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace eCommerce.InfrastructureLayer
 {
     public sealed class StubDataProductRepository : IRepository<Product>
     {
-        readonly MemoryRepository<Product> memRepository;
+        private readonly MemoryRepository<Product> memRepository;
 
         public StubDataProductRepository(MemoryRepository<Product> memRepository)
         {

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using eCommerce.DomainModelLayer.Customers;
 using eCommerce.DomainModelLayer.Products;
 using eCommerce.DomainModelLayer.Services;
-using eCommerce.Helpers.Domain;
-using eCommerce.DomainModelLayer.Customers;
+using System;
 
 namespace eCommerce.DomainModelLayer.Carts
 {
@@ -21,7 +17,7 @@ namespace eCommerce.DomainModelLayer.Carts
 
         public static CartProduct Create(Customer customer, Cart cart, Product product, int quantity, TaxService taxService)
         {
-            if(cart == null)
+            if (cart == null)
                 throw new ArgumentNullException("cart");
 
             if (product == null)
@@ -41,5 +37,4 @@ namespace eCommerce.DomainModelLayer.Carts
             return cartProduct;
         }
     }
-
 }
